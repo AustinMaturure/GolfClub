@@ -1,0 +1,417 @@
+
+
+.video-container {
+  width: 100%;
+  min-height: 100svh; /* Viewport height unit */
+  z-index: -1; /* Ensure it stays behind other content */
+}
+
+video {
+  width: 100%;
+  min-height: 100svh;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  transform: scale(0.5);
+  z-index: -2; /* Ensure it stays behind other content */
+}
+
+.hero-text-container {
+  position: absolute;
+  z-index: 4;
+  color: rgb(219, 122, 122);
+  min-width: 100%;
+  height: 100%;
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+#pg {
+  transition: all 0.5s ease;
+}
+
+
+#hero {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  min-height: 100svh;
+}
+
+@keyframes slide-down {
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  background-color: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  transform: translateY(-70px);
+  animation: slide-down 2s ease-in-out 4s forwards;
+  animation-play-state: paused;
+  opacity: 0;
+  border-bottom: 1px solid #4c7766;
+  align-items: center;
+  z-index: 1000;
+}
+
+header ul {
+  display: flex;
+  padding: 0px;
+  margin: 0px;
+  gap: 1rem;
+  list-style: none;
+  font-family: 'Cabinet Grotesk';
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@keyframes text-up {
+  from {
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.italic {
+  font-style: italic;
+}
+
+.subline {
+  color: white;
+  font-size: 1.6rem;
+  transform: translateY(100%);
+  opacity: 0;
+  width: 50%;
+  margin: 0px;
+  align-self: center;
+  text-align: center;
+  animation: text-up 1s ease-in-out 4s forwards;
+  animation-play-state: paused;
+}
+
+.golf {
+  overflow: hidden;
+  animation: text-up 1s ease-in-out 4s forwards;
+  animation-play-state: paused;
+}
+
+.golf h1 {
+  transform: translateY(100%);
+  opacity: 0;
+  animation: text-up 1s ease-in-out 4s forwards;
+  animation-play-state: paused;
+  text-align: end;
+}
+
+.logo a {
+  margin: 0px;
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: 900;
+}
+
+header a {
+  color: #4c7766;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+.page{
+  position: relative;
+  background-color: white;
+
+}
+
+
+@keyframes justify {
+  
+  to {
+    gap: 4rem;
+  }
+}
+
+@keyframes scale {
+  
+  to {
+    transform: scale(1);
+  }
+}
+.activities-cnt{
+  display: flex;
+  padding: 1rem;
+  gap: 0px;
+  position: relative;
+
+   background-color: white; 
+   justify-content: center;
+   animation-play-state: paused;
+   animation: justify 4s ease-in-out forwards;
+   transition: all 4s;
+}
+
+.act-text{
+  display: flex;
+  width: 100%; background-color: white;
+  justify-content: space-between;
+  font-family: 'Cabinet Grotesk';
+}
+
+.act-img-cnt{
+  display: flex;
+  width: 15rem;
+}
+
+.act-img-cnt img{
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .golf h1 {
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .subline {
+    width: auto;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 1000;
+    border-top: 1px solid #ccc;
+  }
+}
+
+video::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.139);
+  z-index: 2;
+}
+
+
+.header-title {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.header-title h1 {
+  font-family: 'Panchang';
+  font-size: 6rem;
+}
+
+/* Responsive Navigation */
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.cn-btn{
+  background-color: #4c7766;
+  color: white;
+  border: none;
+  padding: 6px;
+  font-style: italic;
+  font-family: 'Cabinet Grotesk';
+  cursor: pointer;
+  transition: all 1s;
+}
+
+
+
+.about{
+  display: flex;
+  padding: 5rem 10rem;
+  position: relative;
+  background-color: white;
+ 
+}
+.about-text{
+  color: #4c7766;
+  font-family: 'Cabinet Grotesk';
+  text-align: center;
+  font-size: 1.5rem; 
+  opacity: 0;
+  transform: translateY(50%); 
+
+
+  animation: text-up 1s ease-in-out forwards;
+ 
+  transition: all 6s;
+}
+.cn-btn:hover{
+  background-color: white;
+  color: #4c7766;
+  border: 1px solid #4c7766;
+}
+
+.nav-link {
+  margin: 0 1rem;
+}
+
+.nav-links.open {
+  display: block;
+}
+@keyframes scale {
+  
+  to {
+    transform: scale(1);
+  }
+}
+.territory{
+  margin-top: 2rem;
+  background-size: cover;
+  height: 50svh;
+  position: relative;
+  background-position: 50%;
+  transform: scale(0.9);
+  animation-play-state: paused;
+  animation: scale 1s ease-in-out forwards;
+   transition: all 4s;
+}
+.territory::after{
+  content: '';
+  position: absolute;
+  height: 100%;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.511);
+  z-index: 2;
+}
+
+.tt-header{
+  text-align: right;
+  width: 100%;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  position: sticky;
+  top: 50%;
+  
+  font-family: 'Panchang';
+  color: white;
+  z-index: 3;
+  font-size: 3rem;
+}
+
+.tt-header p{
+  font-family: 'Cabinet Grotesk';
+  font-weight: 700;
+  font-size: 2rem;
+  margin: 0;
+}
+
+.contact{
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ height: 100svh;
+}
+.contact-text{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cabinet Grotesk';
+  color: #03150e;
+
+}
+.contact-text a{
+  font-size: 1rem;
+  color: #03150e;
+}
+.contact-text h1{
+  font-family: 'Panchang';
+  
+  font-size: 4rem;
+  line-height: 1;
+  color: #4c7766;
+}
+.contact-text h2{
+  font-weight: bold;
+
+ 
+}
+.contact-text h2:nth-child(4){
+  margin-bottom: 0px;
+}
+
+.contact-text div{
+  position: sticky;
+  top: 70%;padding: 1rem;
+}
+.contact-img-cnt{
+  width: 100%;
+  height: 100%;
+}
+.contact-img-cnt img{
+  min-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+
+}
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: fixed;
+    top: 70px; /* Adjust as necessary */
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 1000;
+    border-top: 1px solid #ccc;
+  }
+
+  .nav-link {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+}
