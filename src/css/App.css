@@ -71,6 +71,7 @@ header ul {
   gap: 1rem;
   list-style: none;
   font-family: 'Cabinet Grotesk';
+  font-weight: 700;
 }
 
 nav {
@@ -172,6 +173,7 @@ z-index: 7;
   width: 100%; background-color: white;
   justify-content: space-between;
   font-family: 'Cabinet Grotesk';
+  font-weight: 700;
 }
 
 .act-img-cnt{
@@ -255,6 +257,7 @@ nav {
   padding: 6px;
   font-style: italic;
   font-family: 'Cabinet Grotesk';
+  font-weight: 700;
   cursor: pointer;
   transition: all 1s;
 }
@@ -271,6 +274,7 @@ nav {
 .about-text{
   color: #4c7766;
   font-family: 'Cabinet Grotesk';
+  font-weight: 700;
   text-align: center;
   font-size: 1.5rem; 
   opacity: 0;
@@ -330,9 +334,46 @@ nav {
   top: 50%;
   
   font-family: 'Panchang';
-  color: white;
+  color: #ffffff;
   z-index: 3;
   font-size: 3rem;
+}
+
+footer{
+  height: 30svh;padding:1rem;
+  background-color: #1f1f1f;
+  
+}
+
+.pricing{}
+.pricing h1{
+  font-family: 'Cabinet Grotesk';
+ font-size: 2rem;
+  
+  
+}
+
+.plans{display: flex;
+  justify-content: space-evenly;
+  padding: 2rem;
+  font-family: 'Cabinet Grotesk';
+  color: #1f1f1f;
+  
+ 
+}
+
+.prices-cnt{
+  padding: 1rem;
+  border: 1px solid #4c7766;
+}
+
+.plans p{
+  font-weight: 500;
+}
+
+
+iframe{
+  border-radius: 12px;
 }
 
 .tt-header p{
@@ -358,6 +399,7 @@ nav {
 }
 .contact-text a{
   font-size: 1rem;
+  font-weight: 700;
   color: #03150e;
 }
 .contact-text h1{
@@ -403,7 +445,7 @@ nav {
     top: 70px; /* Adjust as necessary */
     left: 0;
     right: 0;
-    background-color: #fff;
+    background-color: #ffffff;
     z-index: 1000;
     border-top: 1px solid #ccc;
   }
@@ -441,12 +483,15 @@ nav {
 .Faq-header h1{
   padding: 1rem;
   box-sizing: border-box;
+  position: sticky;
+  top: 50%;
 }
 
 .faq-questions{
   flex: 1;
   display: flex;
   flex-direction: column;
+  
 }
 
 .Faq-question{
@@ -471,9 +516,17 @@ transform: translateY(100%);
   font-size: 2rem;
   background-color: inherit;
   color: #4c7766;
+  transition: all 0.5s ;
+}
+
+.Faq-question button:hover{
+  transform: scale(1.3);
+
+
 
 
 }
+
 
 .Faq-question h2, .Faq-question p{
   margin: 0;
