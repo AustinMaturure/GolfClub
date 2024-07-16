@@ -82,10 +82,12 @@ nav {
 @keyframes text-up {
   from {
     opacity: 0;
+    
   }
   to {
     transform: translateY(0);
     opacity: 1;
+    
   }
 }
 
@@ -157,7 +159,7 @@ header a {
   padding: 1rem;
   gap: 0px;
   position: relative;
-
+z-index: 7;
    background-color: white; 
    justify-content: center;
    animation-play-state: paused;
@@ -302,8 +304,8 @@ nav {
   margin-top: 2rem;
   background-size: cover;
   height: 50svh;
-  position: relative;
-  background-position: 50%;
+  background-position: 100%;
+  background-attachment: fixed;
   transform: scale(0.9);
   animation-play-state: paused;
   animation: scale 1s ease-in-out forwards;
@@ -414,4 +416,77 @@ nav {
   .nav-links.open {
     display: flex;
   }
+}
+
+
+.FAQ{
+
+  display: flex; 
+ 
+  justify-content: center;
+
+  color: white;
+
+ 
+}
+
+.Faq-header{
+  font-family: 'Panchang';
+  font-size: 3rem;
+
+  background-color: #4c7766;
+  flex: 1;
+}
+
+.Faq-header h1{
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.faq-questions{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.Faq-question{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #4c7766;
+  color: #4c7766;
+  padding: 0.5rem;
+  
+  font-family: 'Cabinet Grotesk';
+  box-sizing: border-box;
+transform: translateY(100%);
+  animation: text-up 4s ease-in-out forwards;
+  animation-play-state: paused;
+
+ 
+}
+
+.Faq-question button{
+  padding: 0px;
+  font-size: 2rem;
+  background-color: inherit;
+  color: #4c7766;
+
+
+}
+
+.Faq-question h2, .Faq-question p{
+  margin: 0;
+}
+
+.Faq-question .question-answer p {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-out;
+  color: #03150e;
+  
+}
+
+.Faq-question .question-answer p.expanded {
+  max-height: 20px;
 }

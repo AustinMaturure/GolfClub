@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import useElementInView from '../utils/ElementInView'
 import CountUp from 'react-countup';
+import { Helmet } from 'react-helmet';
 
 import '../css/App.css';
 import videoSrc from '../assets/golf-vid.webm';
@@ -13,7 +14,7 @@ import golfImg from '../assets/golf.webp'
 import gymImg from '../assets/gym.webp'
 import fancyImg from '../assets/fancy.webp'
 
-import territoryImg from '../assets/territory.webp'
+import territoryImg from '../assets/Back.jpg'
 
 
 function App() {
@@ -22,6 +23,29 @@ function App() {
   const activitiesRef = useElementInView('.activities-cnt');
   const territoryRef = useElementInView('.territory');
   const fancyRef = useElementInView('.contact-text')
+  const questionRef = useElementInView('.Faq-question')
+
+  const [isClicked, setIsClicked] = useState(false)
+
+  const [activeIndexes, setActiveIndexes] = useState({});
+
+  const toggleAccordion = (index) => {
+    setActiveIndexes((prevIndexes) => ({
+      ...prevIndexes,
+      [index]: !prevIndexes[index],
+    }));
+  };
+
+  const faqs = [
+    { question: "What's The Golf Season?", answer: "All Round. Our Golf Season ranges from winter to summer, anything is Golf Season" },
+    { question: "Are Caddies Available?", answer: "Yes. Caddies are available to Rent For ZAR20" },
+    { question: "Is There A Pitching/Chipping area?", answer: "Yes. Both a Pitching and Chipping area are available" },
+    { question: "What is the Dress Code?", answer: "Appropriate Golf Attire. Anything you'd wear at the Open" },
+    { question: "Is it Beginner Friendly?", answer: "Yes. Practice and Instructors are available." },
+    { question: "Is Food Available on the Premises?", answer: "Yes. A Bar and a Halfway House are available" },
+    { question: "Are Credit Cards Accepted?", answer: "Yes. We accept Visa & MasterCard" }
+  ];
+
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -206,6 +230,47 @@ The club is situated on the N2 in the south-east corner of <span className='ital
       
 
       </section>
+      
+      <section className='FAQ'>
+      <Helmet>
+        <title>Frequently Asked Questions - Piet Retief Country Club</title>
+        <meta name="description" content="Find answers to frequently asked questions about our golf course, including season details, availability of caddies, dress code, and more." />
+        <script type="application/ld+json">
+          {`
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": ${JSON.stringify(faqs.map((faq, index) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
+              }
+            })))}
+          }
+          `}
+        </script>
+      </Helmet>
+      <div className='Faq-header'>
+        <h1 ref={questionRef.ref}>Frequently Asked</h1>
+      </div>
+      <div className='faq-questions'>
+        {faqs.map((faq, index) => (
+          <div className='Faq-question' key={index} >
+            <div className="question-answer">
+              <h2>{faq.question}</h2>
+              <p className={activeIndexes[index] ? 'expanded' : ''}>
+                {faq.answer}
+              </p>
+            </div>
+            <div className='toggle'>
+              <button onClick={() => toggleAccordion(index)}>{activeIndexes[index] ? "-" : "+"}</button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
       </section>  
     </>
   );
