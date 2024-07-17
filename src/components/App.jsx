@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 import { Helmet } from 'react-helmet';
 
 import '../css/App.css';
-import videoSrc from '../assets/go.mp4';
+import videoSrc from '../assets/golf-vid.webm';
 import open from '../assets/menu.svg';
 import close from '../assets/close.svg';
 
@@ -57,6 +57,11 @@ function App() {
 
     const handleScroll = (event) => {
       const video = document.getElementById('video');
+      if (video) {
+      video.autoplay = false;
+      video.loop = false;
+      video.muted = true;
+    }
       const text = document.getElementById('pg');
       const header = document.getElementById('header');
       const golf = document.getElementById('golf');
@@ -95,12 +100,7 @@ function App() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    const video = document.getElementById('video');
-    if (video) {
-      video.autoplay = false;
-      video.loop = false;
-      video.muted = true;
-    }
+    
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -120,8 +120,8 @@ function App() {
           
           <div className="video-container" dangerouslySetInnerHTML={{
             __html: 
-            `<video id="video" muted>
-                  <source src=${videoSrc} type="video/mp4" />
+            `<video id="video" autoPlay muted>
+                  <source src=${videoSrc} type="video/webm" />
               </video>`,
           }}>
           </div>
