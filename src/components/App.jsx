@@ -57,16 +57,17 @@ function App() {
 
     const handleScroll = (event) => {
       const video = document.getElementById('video');
-      if (video) {
-      video.autoplay = false;
-      video.loop = false;
-      video.muted = true;
-    }
       const text = document.getElementById('pg');
       const header = document.getElementById('header');
       const golf = document.getElementById('golf');
       const golfh1 = document.getElementById('golf-h1');
       const subline = document.getElementById('subline');
+     
+      if (video) {
+      video.autoplay = false;
+      video.loop = false;
+      video.muted = true;
+    }
 
       if (video) {
         const scrollTop = window.scrollY;
@@ -120,7 +121,7 @@ function App() {
           
           <div className="video-container" dangerouslySetInnerHTML={{
             __html: 
-            `<video id="video" autoPlay muted>
+            `<video id="video" muted>
                   <source src=${videoSrc} type="video/webm" />
               </video>`,
           }}>
