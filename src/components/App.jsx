@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 import { Helmet } from 'react-helmet';
 
 import '../css/App.css';
-import videoSrc from '../assets/go.mp4';
+import videoSrc from '../assets/golf-vid.webm';
 import open from '../assets/menu.svg';
 import close from '../assets/close.svg';
 
@@ -51,67 +51,6 @@ function App() {
 
     
 
-
-  useEffect(() => {
-    let lastScrollTop = 0;
-    let debounceTimer;
-  
-    const handleScroll = () => {
-      clearTimeout(debounceTimer);
-      debounceTimer = setTimeout(() => {
-        const video = document.getElementById('video');
-        const text = document.getElementById('pg');
-        const header = document.getElementById('header');
-        const golf = document.getElementById('golf');
-        const golfh1 = document.getElementById('golf-h1');
-        const subline = document.getElementById('subline');
-  
-        if (video) {
-          const scrollTop = window.scrollY;
-          const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
-          lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  
-          let scaleValue = parseFloat(getComputedStyle(video).transform.split(',')[0].replace('matrix(', ''));
-          if (scrollDirection === 'down' && scaleValue < 1) {
-            scaleValue = 1;
-            text.style.color = 'black';
-            text.style.top = '0';
-            if (video.readyState >= 3 && video.paused) video.play();
-            header.style.animationPlayState = 'running';
-            golf.style.animationPlayState = 'running';
-            golfh1.style.animationPlayState = 'running';
-            subline.style.animationPlayState = 'running';
-          } else if (scrollDirection === 'up' && scaleValue > 0.5 && !video.paused) {
-            scaleValue = 0.5;
-            text.style.color = 'white';
-            text.style.top = 'unset';
-            video.pause();
-            header.style.animationPlayState = 'paused';
-            golf.style.animationPlayState = 'paused';
-            golfh1.style.animationPlayState = 'paused';
-            subline.style.animationPlayState = 'paused';
-          }
-  
-          video.style.transform = `scale(${scaleValue})`;
-        }
-      }, 100); // 100ms debounce time
-    };
-  
-    window.addEventListener('scroll', handleScroll, { passive: true });
-  
-    if (video) {
-      video.autoplay = false;
-      video.loop = false;
-      video.muted = true;
-    }
-  
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      clearTimeout(debounceTimer);
-    };
-  }, []);
-  
-
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -125,8 +64,8 @@ function App() {
           
           <div className="video-container" dangerouslySetInnerHTML={{
             __html: 
-            `<video id="video">
-                  <source src=${videoSrc} type="video/mp4" />
+            `<video id="video" autoPlay muted>
+                  <source src=${videoSrc}  type="video/webm" />
               </video>`,
           }}>
           </div>
