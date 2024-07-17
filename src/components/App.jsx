@@ -117,10 +117,13 @@ function App() {
     <>
       <section className='hero' id='hero'>
         <div className="container">
-          <div className="video-container">
-            <video id='video'>
-              <source src={videoSrc} type='video/webm' />
-            </video>
+          
+          <div className="video-container" dangerouslySetInnerHTML={{
+            __html: 
+            `<video id="video">
+                  <source src=${videoSrc} type="video/webm" />
+              </video>`,
+          }}>
           </div>
           <div className='hero-text-container' id='pg'>
             <header id='header'>
