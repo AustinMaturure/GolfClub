@@ -63,11 +63,7 @@ function App() {
       const golfh1 = document.getElementById('golf-h1');
       const subline = document.getElementById('subline');
      
-      if (video) {
-      video.autoplay = false;
-      video.loop = false;
-      video.muted = true;
-    }
+    
 
       if (video) {
         const scrollTop = window.scrollY;
@@ -101,7 +97,11 @@ function App() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    
+    if (video) {
+      video.autoplay = false;
+      video.loop = false;
+      video.muted = true;
+    }
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -121,7 +121,7 @@ function App() {
           
           <div className="video-container" dangerouslySetInnerHTML={{
             __html: 
-            `<video id="video" muted>
+            `<video id="video">
                   <source src=${videoSrc} type="video/webm" />
               </video>`,
           }}>
