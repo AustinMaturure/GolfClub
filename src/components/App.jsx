@@ -64,7 +64,7 @@ function App() {
           
           <div className="video-container" dangerouslySetInnerHTML={{
             __html: 
-            `<video id="video" autoPlay muted>
+            `<video id="video" autoPlay muted playsInline >
                   <source src=${videoSrc}  type="video/webm" />
               </video>`,
           }}>
