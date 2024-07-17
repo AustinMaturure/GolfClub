@@ -14,7 +14,8 @@ import golfImg from '../assets/golf.webp'
 import gymImg from '../assets/gym.webp'
 import fancyImg from '../assets/fancy.webp'
 
-import territoryImg from '../assets/Back.jpg'
+import territoryImg from '../assets/Back4.jpg'
+import fbImg from '../assets/fb.svg'
 
 
 function App() {
@@ -47,6 +48,8 @@ function App() {
     { question: "Are Memberships Available?", answer: "Yes. We offer competitive annual membership fees." },
     { question: "What is The Price For a Golf Game?", answer: "ZAR40 For Affliated members. And ZAR70 for Visitors" }
   ];
+
+    
 
 
   useEffect(() => {
@@ -324,19 +327,82 @@ The club is situated on the N2 in the south-east corner of <span className='ital
      
 
     </section>
+    <section className='events-banner'>
+      <div className='wrapper'>
+        <div className='upcoming-event'>
+          <h2>Upcoming Event:</h2>
+        </div>
+        <div className='event-date'>
+          <h2>2 April 2024</h2>
+        </div>
+        <div className='event-price'>
+          <h2>ZAR 200 PP </h2>
+        </div>
+        <div className='event-type'>
+          <h2>Better BALL </h2>
+        </div>
+        <div className='event-time'>
+          <h2>12:30</h2>
+        </div>
+        <div className='event-description'>
+          <h2>Fundraising event </h2>
+        </div>
+      </div>
+    </section>
     <footer>
+      <div className='footer-cnt'>
+      <div className="log">
+        <h1>Piet Retief Country Club</h1>
+      
+      </div>
+      <div className="stats">
+        <h2>Grounds Specifications</h2>
+        <ul>
+          <li>Length <span className='italic'>2833 meters</span></li>
+          <li>Holes <span className='italic'>9</span></li>
+          <li>Par <span className='italic'>35</span></li>
+          <li>Type <span className='italic'>Parklands</span></li>
+          <li>Year Built <span className='italic'>1957</span></li>
+        </ul>
+      </div>
+      <div className="stats">
+        <h2>Amenities</h2>
+        <ul>
+          <li>Bar</li>
+          <li>Halfway House </li>
+          <li>Swimmming Pool </li>
+        </ul>
+      </div>
+      <div className="stats">
+        <h2>Affiliations</h2>
+        <ul>
+          <li>SAGA </li>
+          <li>SALGU</li>
+          <li>Non-associated Fairways </li>
+        </ul>
+      </div>
+   
+
+
     <iframe
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d888.6536933979264!2d30.799034969495757!3d-27.010733203717372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1eeee49f4b2847ab%3A0x19f0561943a24e6c!2sPiet%20Retief%20Country%20Club!5e0!3m2!1sen!2sza!4v1721138264585!5m2!1sen!2sza&maptype=satellite"
-  width="400"
+  width="400px"
   
-  height="300"
+  height="200"
   style={{ border: "2px Solid #4c7766", maxHeight:"100%",  boxSizing:"border-box" }}
   allowFullScreen=""
   loading="lazy"
   referrerPolicy="no-referrer-when-downgrade"
 />
+</div>
+ <hr />
+ <div className="legal">
 
-
+  <p className="copy-right">&copy; {new Date().getFullYear()} Piet Retief Golf Club. All rights reserved. Designed and developed by <a className="austin-portfolio" href="https://austinmaturure.netlify.app" target="_blank" rel="noopener noreferrer">⚡</a></p>
+  <a className="social-link" href="https://www.facebook.com/GOLFPietRetief/" target="_blank" rel="noopener noreferrer">
+            <img src={fbImg} alt="Facebook" />
+          </a>
+ </div>
     </footer>
       </section>  
     </>

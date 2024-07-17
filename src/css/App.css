@@ -161,6 +161,8 @@ header a {
   gap: 0px;
   position: relative;
 z-index: 7;
+overflow: auto;
+align-items: center;
    background-color: white; 
    justify-content: center;
    animation-play-state: paused;
@@ -178,7 +180,7 @@ z-index: 7;
 
 .act-img-cnt{
   display: flex;
-  width: 15rem;
+  max-width: 100%;
 }
 
 .act-img-cnt img{
@@ -190,6 +192,34 @@ z-index: 7;
     text-align: center;
     line-height: 1.1;
   }
+
+  .activities-cnt, .contact, .activity-cnt, .FAQ, .plans, .footer-cnt{
+    display: flex !important;
+    flex-direction: column;
+  }
+
+  .contact{
+    height: unset !important;
+  }
+
+  .activity-cnt{
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-img-cnt img{
+    max-width: 100%;
+  }
+
+  .Faq-header h1{
+    font-size: unset;
+  } 
+
+  .about{
+    padding: 2rem !important;
+  }
+
+
 
   .subline {
     width: auto;
@@ -320,7 +350,7 @@ nav {
   position: absolute;
   height: 100%;
   inset: 0;
-  background: rgba(0, 0, 0, 0.511);
+  background: rgba(0, 0, 0, 0.632);
   z-index: 2;
 }
 
@@ -340,12 +370,59 @@ nav {
 }
 
 footer{
-  height: 30svh;padding:1rem;
+ padding:1rem;
   background-color: #1f1f1f;
+  color: #ffffff;
   
 }
 
-.pricing{}
+
+.footer-cnt{
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.footer-cnt p{
+  font-family: 'Cabinet Grotesk';color: #ffffffcb;
+}
+
+.footer-cnt h2{
+  margin: 0px;
+  font-family: 'Cabinet Grotesk';
+}
+
+.log h1{
+  font-size: 3rem;
+  font-style: italic;
+  font-weight: bold;
+  line-height: 0.9;
+border-bottom: 1px solid #4c7766;
+}
+
+.legal{
+  font-family: 'Cabinet Grotesk';
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.social-link{
+  margin-top: 16px;
+  filter: invert(1);
+}
+
+.footer-cnt ul{
+  padding-left: 0px;
+  gap: 6px;
+  font-family: 'Cabinet Grotesk';
+  
+}
+
+.footer-cnt li{
+  color: #ffffffcb;
+ 
+}
 .pricing h1{
   font-family: 'Cabinet Grotesk';
  font-size: 2rem;
@@ -357,7 +434,7 @@ footer{
   justify-content: space-evenly;
   padding: 2rem;
   font-family: 'Cabinet Grotesk';
-  color: #1f1f1f;
+  color: #4c7766;
   
  
 }
@@ -369,8 +446,15 @@ footer{
 
 .plans p{
   font-weight: 500;
+  color: #03150e;
 }
 
+.stats{
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
 
 iframe{
   border-radius: 12px;
@@ -427,11 +511,28 @@ iframe{
   height: 100%;
 }
 .contact-img-cnt img{
-  min-width: 100%;
-  max-height: 100%;
+  width: 100%;
+ height: 100%;
   object-fit: cover;
 
 }
+@media (max-width: 929px) {
+  .footer-cnt{
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4rem;
+}
+.footer-cnt iframe {
+  grid-column: span 2;
+ 
+}
+
+.stats{
+  justify-content: flex-start;
+}
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -542,4 +643,67 @@ transform: translateY(100%);
 
 .Faq-question .question-answer p.expanded {
   max-height: 20px;
+}
+
+@keyframes scrollLeft {
+  to{
+    left: -100%;
+  }
+  
+}
+
+.wrapper {
+  border: 1px solid black;
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  background-color: #4c7766;
+ 
+}
+
+
+
+.wrapper div{
+  position: absolute;
+  left: calc(300px * 6);
+  height: 100px;
+  width: 300px;
+  animation-name: scrollLeft;
+  animation-duration: 25s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  display: flex;
+  align-items: center;
+ 
+}
+
+.wrapper h2{
+  margin: 0px;
+  color: #ffffff;
+  font-family: 'Panchang';
+}
+
+
+.upcoming-event{
+
+  animation-delay: calc(25s / 6 * (6 - 1)*-1);
+}
+.event-date{
+  animation-delay: calc(25s / 6 * (6 - 2) * -1);
+}
+.event-price{
+  animation-delay: calc(25s / 6 * (6 - 3) * -1);
+}
+.event-type{
+  animation-delay: calc(25s / 6 * (6 - 4) * -1);
+}
+.event-time{
+  animation-delay: calc(25s / 6 * (6 - 5) * -1);
+}
+.event-description{
+  animation-delay: calc(25s /6 * (6 - 6) * -1);
 }

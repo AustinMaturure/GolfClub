@@ -1,11 +1,15 @@
 body{
     margin: 0px;
 }
-h1 {
+h1{
     margin: 0;
 }
 
 button{
     border: none;
     cursor:pointer;
+}
+
+ul{
+    list-style: none;
 }
