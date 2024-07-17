@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useElementInView from '../utils/ElementInView'
 import CountUp from 'react-countup';
 import { Helmet } from 'react-helmet';
+import { useRef } from 'react';
 
 import '../css/App.css';
 import videoSrc from '../assets/golf-vid.webm';
@@ -54,7 +55,21 @@ function App() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+  const videoRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
 
+  useEffect(() => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android|iPad|iPhone|iPod/i.test(userAgent)) {
+      setIsMobile(true);
+    }
+  }, []);
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  };
 
 
   return (
@@ -62,13 +77,14 @@ function App() {
       <section className='hero' id='hero'>
         <div className="container">
           
-          <div className="video-container" dangerouslySetInnerHTML={{
-            __html: 
-            `<video id="video" muted playsInline >
-                  <source src=${videoSrc}  type="video/webm" />
-              </video>`,
-          }}>
-          </div>
+        <div className="video-container">
+      <video ref={videoRef} id="video" muted playsInline autoPlay>
+        <source src={videoSrc} type="video/webm" />
+      </video>
+      {isMobile && (
+        <button onClick={handlePlay}>Play Video</button>
+      )}
+    </div>
           <div className='hero-text-container' id='pg'>
             <header id='header'>
               <div className='logo'>
