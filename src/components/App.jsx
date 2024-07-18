@@ -50,15 +50,17 @@ function App() {
   ];
 
     
-
+ 
 
   useEffect(() => {
     let lastScrollTop = 0;
     let debounceTimer;
-  
+    
     const handleScroll = () => {
+     
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
+   
         const video = document.getElementById('video');
         const text = document.getElementById('pg');
         const header = document.getElementById('header');
@@ -135,7 +137,7 @@ function App() {
         Your browser does not support the video tag.`:`<source src="/g4.webm" type="video/webm" />
 
         <source src="/fallback.mp4" type="video/mp4" />
-        Your browser does not support the video tag.`}
+               Your browser does not support the video tag.`}
     </video>`,
 }}>
 </div>
