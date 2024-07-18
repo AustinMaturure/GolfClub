@@ -49,18 +49,18 @@ function App() {
     { question: "What is The Price For a Golf Game?", answer: "ZAR40 For Affliated members. And ZAR70 for Visitors" }
   ];
 
-    
- 
+  const [firstScroll, setFirstScroll] = useState(false);
+
 
   useEffect(() => {
     let lastScrollTop = 0;
     let debounceTimer;
     
     const handleScroll = () => {
-     
+      
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
-   
+
         const video = document.getElementById('video');
         const text = document.getElementById('pg');
         const header = document.getElementById('header');
@@ -72,12 +72,14 @@ function App() {
           const scrollTop = window.scrollY;
           const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  
+        
           let scaleValue = parseFloat(getComputedStyle(video).transform.split(',')[0].replace('matrix(', ''));
           if (scrollDirection === 'down' && scaleValue < 1) {
+           
             scaleValue = 1;
             text.style.color = 'black';
             text.style.top = '0';
+            
             if (video.readyState >= 3 && video.paused) video.play();
             header.style.animationPlayState = 'running';
             golf.style.animationPlayState = 'running';
@@ -408,7 +410,7 @@ The club is situated on the N2 in the south-east corner of <span className='ital
   width="400px"
   
   height="200"
-  style={{ border: "2px Solid #4c7766", maxHeight:"100%",  boxSizing:"border-box" }}
+  style={{ border: "2px Solid #4c7766", maxHeight:"100%", maxWidth:"100%" }}
   allowFullScreen=""
   loading="lazy"
   referrerPolicy="no-referrer-when-downgrade"

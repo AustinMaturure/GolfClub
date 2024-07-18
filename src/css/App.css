@@ -201,6 +201,10 @@ align-items: center;
     line-height: 1.1;
   }
 
+  nav{
+    flex-direction: row-reverse;
+  }
+
   .activities-cnt, .contact, .activity-cnt, .FAQ, .plans, .footer-cnt{
     display: flex !important;
     flex-direction: column;
@@ -530,7 +534,7 @@ iframe{
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 4rem;
+
 }
 .footer-cnt iframe {
   grid-column: span 2;
