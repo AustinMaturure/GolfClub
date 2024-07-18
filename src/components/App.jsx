@@ -123,13 +123,15 @@ function App() {
       <section className='hero' id='hero'>
         <div className="container">
           
-          <div className="video-container" dangerouslySetInnerHTML={{
-            __html: 
-            `<video id="video" muted="true" autoplay="false" preload="true" playsinline>
-                  <source src="/g.mp4" type="video/mp4" />
-              </video>`,
-          }}>
-          </div>
+        <div className="video-container" dangerouslySetInnerHTML={{
+  __html: 
+  `<video id="video" muted autoplay preload="true" playsinline>
+        <source src="/g.mp4" type="video/mp4" />
+        <source src="/golf-vid.webm" type="video/webm" />
+        Your browser does not support the video tag.
+    </video>`,
+}}>
+</div>
           <div className='hero-text-container' id='pg'>
             <header id='header'>
               <div className='logo'>
