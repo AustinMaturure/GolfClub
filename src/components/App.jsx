@@ -4,7 +4,7 @@ import CountUp from 'react-countup';
 import { Helmet } from 'react-helmet';
 
 import '../css/App.css';
-import videoSrc from '../assets/golf-vid.webm';
+
 import open from '../assets/menu.svg';
 import close from '../assets/close.svg';
 
@@ -126,7 +126,7 @@ function App() {
           <div className="video-container" dangerouslySetInnerHTML={{
             __html: 
             `<video id="video" muted="true" autoplay="true" playsinline>
-                  <source src=${videoSrc} type="video/webm" />
+                  <source src="/golf-vid.webm" type="video/webm" />
               </video>`,
           }}>
           </div>
