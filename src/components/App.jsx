@@ -126,7 +126,7 @@ function App() {
           <div className="video-container" dangerouslySetInnerHTML={{
             __html: 
             `<video id="video" muted="true" autoplay="true" playsinline>
-                  <source src="/golf-vid.webm" type="video/webm" />
+                  <source src="/g.mp4" type="video/mp4" />
               </video>`,
           }}>
           </div>
