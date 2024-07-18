@@ -1,33 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import useElementInView from '../utils/ElementInView'
+import React, { useState, useEffect, useRef } from 'react';
+import useElementInView from '../utils/ElementInView';
 import CountUp from 'react-countup';
 import { Helmet } from 'react-helmet';
-
 import '../css/App.css';
 import videoSrc from '../assets/golf-vid.webm';
 import open from '../assets/menu.svg';
 import close from '../assets/close.svg';
-
-import swimImg from '../assets/swim.webp'
-import tennisImg from '../assets/tennis.webp'
-import golfImg from '../assets/golf.webp'
-import gymImg from '../assets/gym.webp'
-import fancyImg from '../assets/fancy.webp'
-
-import territoryImg from '../assets/Back4.jpg'
-import fbImg from '../assets/fb.svg'
-
-
+import swimImg from '../assets/swim.webp';
+import tennisImg from '../assets/tennis.webp';
+import golfImg from '../assets/golf.webp';
+import gymImg from '../assets/gym.webp';
+import fancyImg from '../assets/fancy.webp';
+import territoryImg from '../assets/Back4.jpg';
+import fbImg from '../assets/fb.svg';
+import VideoPlayer from '../utils/VideoPlayer';
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const about = useElementInView('.about-text');
   const activitiesRef = useElementInView('.activities-cnt');
   const territoryRef = useElementInView('.territory');
-  const fancyRef = useElementInView('.contact-text')
-  const questionRef = useElementInView('.Faq-question')
+  const fancyRef = useElementInView('.contact-text');
+  const questionRef = useElementInView('.Faq-question');
 
-  const [isClicked, setIsClicked] = useState(false)
-
+  const [isClicked, setIsClicked] = useState(false);
   const [activeIndexes, setActiveIndexes] = useState({});
 
   const toggleAccordion = (index) => {
@@ -49,13 +44,10 @@ function App() {
     { question: "What is The Price For a Golf Game?", answer: "ZAR40 For Affliated members. And ZAR70 for Visitors" }
   ];
 
-    
-
-
   useEffect(() => {
     let lastScrollTop = 0;
     let debounceTimer;
-  
+
     const handleScroll = () => {
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
@@ -65,12 +57,12 @@ function App() {
         const golf = document.getElementById('golf');
         const golfh1 = document.getElementById('golf-h1');
         const subline = document.getElementById('subline');
-  
+
         if (video) {
           const scrollTop = window.scrollY;
           const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  
+
           let scaleValue = parseFloat(getComputedStyle(video).transform.split(',')[0].replace('matrix(', ''));
           if (scrollDirection === 'down' && scaleValue < 1) {
             scaleValue = 1;
@@ -91,45 +83,53 @@ function App() {
             golfh1.style.animationPlayState = 'paused';
             subline.style.animationPlayState = 'paused';
           }
-  
+
           video.style.transform = `scale(${scaleValue})`;
         }
       }, 100); // 100ms debounce time
     };
-  
+
     window.addEventListener('scroll', handleScroll, { passive: true });
-  
-    if (video) {
-      video.autoplay = false;
-      video.loop = false;
-      video.muted = true;
-    }
-  
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(debounceTimer);
     };
   }, []);
-  
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  }; const playerRef = React.useRef(null);
+
+  const videoJsOptions = {
+    autoplay: true,
+    controls: true,
+    responsive: true,
+    fluid: true,
+    sources: [{
+      src: videoSrc,
+      type: 'video/webm'
+    }]
   };
 
+  const handlePlayerReady = (player) => {
+    playerRef.current = player;
 
+    // You can handle player events here, for example:
+    player.on('waiting', () => {
+      videojs.log('player is waiting');
+    });
+
+    player.on('dispose', () => {
+      videojs.log('player will dispose');
+    });
+  };
 
   return (
     <>
       <section className='hero' id='hero'>
         <div className="container">
-          
-          <div className="video-container" dangerouslySetInnerHTML={{
-            __html: 
-            `<video id="video" muted="true" playsinline>
-                  <source src="https://storage.cloud.google.com/prcountryclub/golf-vid.webm" type="video/webm" />
-              </video>`,
-          }}>
-          </div>
+        <VideoPlayer options={videoJsOptions} onReady={handlePlayerReady} />
           <div className='hero-text-container' id='pg'>
             <header id='header'>
               <div className='logo'>
