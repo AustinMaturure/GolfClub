@@ -126,9 +126,10 @@ function App() {
         <div className="video-container" dangerouslySetInnerHTML={{
   __html: 
   `<video id="video" muted autoplay preload="true" playsinline>
+  <source src="/g.mp4" type="video/mp4" />
 
   <source src="/g4.webm" type="video/webm" />
-  <source src="/g.mp4" type="video/mp4" />
+
   <source src="/fallback.mp4" type="video/mp4" />
         Your browser does not support the video tag.
     </video>`,
