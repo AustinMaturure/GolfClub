@@ -77,6 +77,7 @@ console.log(loading)
         const subline = document.getElementById('subline');
   
         if (video) {
+          video.autoplay ="false"
           const scrollTop = window.scrollY;
           const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -154,7 +155,7 @@ console.log(loading)
           <div className="container">
             <div className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" muted  preload="true" playsinline>
+              `<video id="video" muted preload="true" playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
