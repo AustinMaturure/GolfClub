@@ -137,7 +137,7 @@ console.log(loading)
 
 
   return (
-    loading  ? (<div className='loading-screen'><img src={golfBall} alt="spinning-golf-ball" />
+    !loading  ? (<div className='loading-screen'><img src={golfBall} alt="spinning-golf-ball" />
       </div>
     ) : (
       <>
@@ -146,7 +146,7 @@ console.log(loading)
           <div className="container">
             <div className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" muted   playsinline>
+              `<video id="video" muted playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
