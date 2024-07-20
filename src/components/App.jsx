@@ -137,7 +137,7 @@ console.log(loading)
 
 
   return (
-    !loading  ? (<div className='loading-screen'><img src={golfBall} alt="spinning-golf-ball" />
+    loading  ? (<div className='loading-screen'><img src={golfBall} alt="spinning-golf-ball" />
       </div>
     ) : (
       <>
