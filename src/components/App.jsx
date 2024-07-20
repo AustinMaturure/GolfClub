@@ -113,6 +113,7 @@ console.log(loading)
     window.addEventListener('scroll', handleScroll, { passive: true });
     setLoading(false);
     if (video) {
+      video.preload = "auto";
       video.autoplay = false;
       video.loop = false;
       video.muted = true;
@@ -144,7 +145,7 @@ console.log(loading)
           <div className="container">
             <div className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" muted  preload="auto" playsinline>
+              `<video id="video" muted   playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
