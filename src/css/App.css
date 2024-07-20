@@ -23,6 +23,13 @@
   height: 2rem;
   animation: rotate 1.5s infinite ;
 }
+ .loading-screen div {
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
 video {
   width: 100%;
   min-height: 100vh;

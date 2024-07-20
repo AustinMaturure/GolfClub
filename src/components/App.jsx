@@ -112,7 +112,7 @@ console.log(loading)
     };
   
     window.addEventListener('scroll', handleScroll, { passive: true });
-    setLoading(false);
+
     if (video) {
       video.preload = "auto";
       video.autoplay = false;
@@ -137,7 +137,9 @@ console.log(loading)
 
 
   return (
-    loading  ? (<div className='loading-screen'><img src={golfBall} alt="spinning-golf-ball" />
+    loading  ? (<div className='loading-screen'><div><img src={golfBall} alt="spinning-golf-ball" />
+    <p>Loading...</p>
+      </div>
       </div>
     ) : (
       <>
