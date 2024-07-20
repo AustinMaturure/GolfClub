@@ -129,10 +129,10 @@ console.log(loading)
 
 
   return (
-    loading  ? (
+    loading  ? (<><p>Loading...</p>
       <div className="video-container" style={{display:'none'}} dangerouslySetInnerHTML={{
         __html: 
-        `<video id="video" muted autoplay preload="true" playsinline>
+        `<video id="video" muted preload="true" playsinline>
         ${ window.innerWidth > 768 ? 
           `<source src="/g.mp4" type="video/mp4" />
           <source src="/g4.webm" type="video/webm" />
@@ -143,14 +143,14 @@ console.log(loading)
           Your browser does not support the video tag.`}
         </video>`
       }}>
-      </div>
+      </div></>
     ) : (
       <>
         <section className='hero' id='hero'>
           <div className="container">
             <div className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" muted autoplay preload="true" playsinline>
+              `<video id="video" muted preload="true" playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
