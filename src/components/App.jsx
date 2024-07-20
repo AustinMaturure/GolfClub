@@ -108,7 +108,9 @@ console.log(loading)
     };
   
     window.addEventListener('scroll', handleScroll, { passive: true });
-    video.removeEventListener('canplaythrough', handleScroll);
+    video.removeEventListener('canplaythrough', (event) => {
+      setLoading(false);
+    });
     if (video) {
       video.autoplay = false;
       video.loop = false;
@@ -132,7 +134,7 @@ console.log(loading)
     loading  ? (<><p>Loading...</p>
       <div className="video-container" style={{display:'none'}} dangerouslySetInnerHTML={{
         __html: 
-        `<video id="video" muted autoplay="false" preload="true" playsinline>
+        `<video id="video" muted  preload="true" playsinline>
         ${ window.innerWidth > 768 ? 
           `<source src="/g.mp4" type="video/mp4" />
           <source src="/g4.webm" type="video/webm" />
@@ -150,7 +152,7 @@ console.log(loading)
           <div className="container">
             <div className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" muted autoplay="false" preload="true" playsinline>
+              `<video id="video" muted  preload="true" playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
