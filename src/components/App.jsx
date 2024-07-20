@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useElementInView from '../utils/ElementInView'
 import CountUp from 'react-countup';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import golfBall from '../assets/golf-ball.svg'
 
 import '../css/App.css';
 
@@ -136,8 +137,8 @@ console.log(loading)
 
 
   return (
-    loading  ? (<><p>Loading...</p>
-      </>
+    loading  ? (<div className='loading-screen'><img src={golfBall} alt="spinning-golf-ball" />
+      </div>
     ) : (
       <>
       
