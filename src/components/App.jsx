@@ -58,12 +58,12 @@ console.log(loading)
     let debounceTimer;
     const video = document.querySelector('video');
     if (video) {
-      video.autoplay = false;}
+      video.autoplay = false;
     video.addEventListener('canplaythrough', (event) => {
       setLoading(false);
-    });
+    })};
     
-    console.log(loading)
+    
     const handleScroll = () => {
       
       clearTimeout(debounceTimer);
@@ -111,13 +111,14 @@ console.log(loading)
     };
   
     window.addEventListener('scroll', handleScroll, { passive: true });
-    video.removeEventListener('canplaythrough', (event) => {
-      setLoading(false);
-    });
+    setLoading(false);
     if (video) {
       video.autoplay = false;
       video.loop = false;
       video.muted = true;
+      video.removeEventListener('canplaythrough', (event) => {
+      setLoading(false);
+    });
     }
   
     return () => {
@@ -135,20 +136,7 @@ console.log(loading)
 
   return (
     loading  ? (<><p>Loading...</p>
-      <div className="video-container" style={{display:'none'}} dangerouslySetInnerHTML={{
-        __html: 
-        `<video id="video" muted autoplay="false" preload="true" playsinline>
-        ${ window.innerWidth > 768 ? 
-          `<source src="/g.mp4" type="video/mp4" />
-          <source src="/g4.webm" type="video/webm" />
-          <source src="/fallback.mp4" type="video/mp4" />
-          Your browser does not support the video tag.` : 
-          `<source src="/g4.webm" type="video/webm" />
-          <source src="/fallback.mp4" type="video/mp4" />
-          Your browser does not support the video tag.`}
-        </video>`
-      }}>
-      </div></>
+      </>
     ) : (
       <>
         <section className='hero' id='hero'>
@@ -182,9 +170,10 @@ console.log(loading)
                     <li className='nav-link'><a href="">About</a></li>
                     <li className='nav-link'><a href="">Contact</a></li>
                   </ul>
+                  { window.innerWidth > 768 ? 
                   <div>
                     <button className='cn-btn'>Book A Day</button>
-                  </div>
+                  </div>:<></>}
                 </nav>
               </header>
               <div className='header-title'>

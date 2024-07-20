@@ -659,7 +659,7 @@ transform: translateY(100%);
 }
 
 .Faq-question .question-answer p.expanded {
-  max-height: 20px;
+  max-height: 40px;
 }
 
 @keyframes scrollLeft {
