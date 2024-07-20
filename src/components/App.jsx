@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import useElementInView from '../utils/ElementInView'
 import CountUp from 'react-countup';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 import '../css/App.css';
 
@@ -77,7 +77,7 @@ console.log(loading)
         const subline = document.getElementById('subline');
   
         if (video) {
-          video.autoplay ="false"
+          video.autoplay =false
           const scrollTop = window.scrollY;
           const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -139,11 +139,12 @@ console.log(loading)
       </>
     ) : (
       <>
+      
         <section className='hero' id='hero'>
           <div className="container">
             <div className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" muted preload="true" playsinline>
+              `<video id="video" muted  preload="auto" playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
@@ -260,6 +261,7 @@ console.log(loading)
               <img src={fancyImg} alt="" />
             </div>
           </section>
+          <HelmetProvider>
           <section className='FAQ'>
             <Helmet>
               <title>Frequently Asked Questions - Piet Retief Country Club</title>
@@ -299,7 +301,7 @@ console.log(loading)
                 </div>
               ))}
             </div>
-          </section>
+          </section></HelmetProvider>
           <section className='pricing'>
             <div className="plans">
               <div className='prices-cnt'>
