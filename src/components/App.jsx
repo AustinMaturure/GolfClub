@@ -112,7 +112,7 @@ console.log(loading)
     };
   
     window.addEventListener('scroll', handleScroll, { passive: true });
-
+    setLoading(false)
     if (video) {
       video.preload = "auto";
       video.autoplay = false;
