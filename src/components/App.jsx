@@ -57,13 +57,6 @@ console.log(loading)
   useEffect(() => {
     let lastScrollTop = 0;
     let debounceTimer;
-    const video = document.querySelector('video');
-    if (video) {
-      video.autoplay = false;
-    video.addEventListener('canplaythrough', (event) => {
-      setLoading(false);
-    })};
-    
     
     const handleScroll = () => {
       
@@ -108,22 +101,27 @@ console.log(loading)
   
           video.style.transform = `scale(${scaleValue})`;
         }
-      }, 100); // 100ms debounce time
+      }, 1);
     };
   
     window.addEventListener('scroll', handleScroll, { passive: true });
-    setLoading(false)
+    const video = document.getElementById('video');
+
     if (video) {
       video.preload = "auto";
       video.autoplay = false;
       video.loop = false;
       video.muted = true;
-      video.removeEventListener('canplaythrough', (event) => {
+      video.addEventListener('canplaythrough', () => {
       setLoading(false);
     });
     }
   
     return () => {
+      if (video){
+        video.removeEventListener('canplaythrough', () => {
+          setLoading(false)});
+        }
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(debounceTimer);
     };
@@ -140,7 +138,22 @@ console.log(loading)
     loading  ? (<div className='loading-screen'><div><img src={golfBall} alt="spinning-golf-ball" />
     <p>Loading...</p>
       </div>
+      <div style={{display:'none'}} className="video-container" dangerouslySetInnerHTML={{
+              __html: 
+              `<video id="video" muted playsinline>
+              ${ window.innerWidth > 768 ? 
+                `<source src="/g.mp4" type="video/mp4" />
+                <source src="/g4.webm" type="video/webm" />
+                <source src="/fallback.mp4" type="video/mp4" />
+                Your browser does not support the video tag.` : 
+                `<source src="/g4.webm" type="video/webm" />
+                <source src="/fallback.mp4" type="video/mp4" />
+                Your browser does not support the video tag.`}
+              </video>`
+            }}>
+            </div>
       </div>
+
     ) : (
       <>
       
