@@ -146,8 +146,9 @@ console.log(loading)
                 <source src="/g4.webm" type="video/webm" />
                 <source src="/fallback.mp4" type="video/mp4" />
                 Your browser does not support the video tag.` : 
-                `<source src="/g4.webm" type="video/webm" />
-                <source src="/fallback.mp4" type="video/mp4" />
+                `<source src="/fallback.mp4" type="video/mp4" />
+                <source src="/g4.webm" type="video/webm" />
+                
                 Your browser does not support the video tag.`}
               </video>`
             }}>
