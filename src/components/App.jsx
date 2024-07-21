@@ -26,6 +26,7 @@ function App() {
   const territoryRef = useElementInView('.territory');
   const fancyRef = useElementInView('.contact-text')
   const questionRef = useElementInView('.Faq-question')
+
   const [isClicked, setIsClicked] = useState(false)
 
   const [activeIndexes, setActiveIndexes] = useState({});
@@ -119,8 +120,7 @@ console.log(loading)
     return () => {
       if (video){
         video.removeEventListener('canplaythrough', () => {
-          setLoading(false)
-        video.autoplay = false});
+          setLoading(false)});
         }
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(debounceTimer);
@@ -140,7 +140,7 @@ console.log(loading)
       </div>
       <div style={{display:'none'}} className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" autoplay="false" muted playsinline >
+              `<video id="video" muted playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
@@ -161,14 +161,14 @@ console.log(loading)
           <div className="container">
             <div className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" playsinline>
+              `<video id="video" muted playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
                 <source src="/fallback.mp4" type="video/mp4" />
                 Your browser does not support the video tag.` : 
                 `<source src="/g4.webm" type="video/webm" />
-                 <source src="/fallback.mp4" type="video/mp4" />
+                <source src="/fallback.mp4" type="video/mp4" />
                 Your browser does not support the video tag.`}
               </video>`
             }}>
