@@ -140,7 +140,7 @@ console.log(loading)
       </div>
       <div style={{display:'none'}} className="video-container" dangerouslySetInnerHTML={{
               __html: 
-              `<video id="video" muted playsinline>
+              `<video id="video" autoplay=false muted playsinline>
               ${ window.innerWidth > 768 ? 
                 `<source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
