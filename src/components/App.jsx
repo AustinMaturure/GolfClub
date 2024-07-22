@@ -103,9 +103,9 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     const video = document.getElementById('video');
 
-    if (video) {video.autoPlay = false;
+    if (video) {
+      video.autoPlay = false;
       video.preload = "auto";
-      
       video.loop = false;
       video.muted = true;
       video.addEventListener('canplaythrough', () => {
@@ -143,7 +143,7 @@ function App() {
     
       </div>:<p></p>}
             <div className="video-container">
-               <video id="video" autoPlay={true} muted playsinline>
+               <video id="video" autoPlay={false} muted playsinline>
               { window.innerWidth > 768 ? (
                 <>
                 <source src="/g.mp4" type="video/mp4" />
