@@ -66,7 +66,7 @@ function App() {
         const subline = document.getElementById('subline');
   
         if (video) {
-          video.autoplay =false
+          video.autoPlay =false
           const scrollTop = window.scrollY;
           const scrollDirection = scrollTop > lastScrollTop ? 'down' : 'up';
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
@@ -103,9 +103,9 @@ function App() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     const video = document.getElementById('video');
 
-    if (video) {
+    if (video) {video.autoPlay = false;
       video.preload = "auto";
-      video.autoplay = false;
+      
       video.loop = false;
       video.muted = true;
       video.addEventListener('canplaythrough', () => {
@@ -143,7 +143,7 @@ function App() {
     
       </div>:<p></p>}
             <div className="video-container">
-               <video id="video" muted playsinline>
+               <video id="video" autoPlay={false}  muted playsinline>
               { window.innerWidth > 768 ? (
                 <>
                 <source src="/g.mp4" type="video/mp4" />
