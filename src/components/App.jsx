@@ -24,10 +24,7 @@ function App() {
   const about = useElementInView('.about-text');
   const activitiesRef = useElementInView('.activities-cnt');
   const territoryRef = useElementInView('.territory');
-  const fancyRef = useElementInView('.contact-text')
-  const questionRef = useElementInView('.Faq-question')
-
-  const [isClicked, setIsClicked] = useState(false)
+  const questionRef = useElementInView('.Faq-question');
 
   const [activeIndexes, setActiveIndexes] = useState({});
 
@@ -50,9 +47,7 @@ function App() {
     { question: "What is The Price For a Golf Game?", answer: "ZAR40 For Affliated members. And ZAR70 for Visitors" }
   ];
 
-  const [firstScroll, setFirstScroll] = useState(false);
   const [loading, setLoading] = useState(true)
-console.log(loading)
 
   useEffect(() => {
     let lastScrollTop = 0;
@@ -88,6 +83,7 @@ console.log(loading)
             golf.style.animationPlayState = 'running';
             golfh1.style.animationPlayState = 'running';
             subline.style.animationPlayState = 'running';
+            
           } else if (scrollDirection === 'up' && scaleValue > 0.5 && !video.paused) {
             scaleValue = 0.5;
             text.style.color = 'white';
@@ -114,6 +110,7 @@ console.log(loading)
       video.muted = true;
       video.addEventListener('canplaythrough', () => {
       setLoading(false);
+      video.style.display = "block"
     });
     }
   
@@ -135,30 +132,16 @@ console.log(loading)
 
 
   return (
-    loading  ? (<div className='loading-screen'><div><img src={golfBall} alt="spinning-golf-ball" />
-    <p>Loading...</p>
-      </div>
-      <div style={{display:'none'}} className="video-container" dangerouslySetInnerHTML={{
-              __html: 
-              `<video id="video" autoplay=false muted playsinline>
-              ${ window.innerWidth > 768 ? 
-                `<source src="/g.mp4" type="video/mp4" />
-                <source src="/g4.webm" type="video/webm" />
-                <source src="/fallback.mp4" type="video/mp4" />
-                Your browser does not support the video tag.` : 
-                `<source src="/g4.webm" type="video/webm" />
-                <source src="/fallback.mp4" type="video/mp4" />
-                Your browser does not support the video tag.`}
-              </video>`
-            }}>
-            </div>
-      </div>
-
-    ) : (
+    
       <>
       
         <section className='hero' id='hero'>
-          <div className="container">
+          <div className="container" id='cnt'>
+          {loading? <div className='loading-screen'><div><img src={golfBall} alt="spinning-golf-ball" />
+    <p>Loading...</p>
+      </div>
+    
+      </div>:<p></p>}
             <div className="video-container" dangerouslySetInnerHTML={{
               __html: 
               `<video id="video" muted playsinline>
@@ -184,9 +167,9 @@ console.log(loading)
                   </button>
                   <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
                     <li className='nav-link'><a href="">Home</a></li>
-                    <li className='nav-link'><a href="">Territory</a></li>
-                    <li className='nav-link'><a href="">About</a></li>
-                    <li className='nav-link'><a href="">Contact</a></li>
+                    <li className='nav-link'><a href="#ter">Territory</a></li>
+                    <li className='nav-link'><a href="#about">About</a></li>
+                    <li className='nav-link'><a href="#cont">Contact</a></li>
                   </ul>
                   { window.innerWidth > 768 ? 
                   <div>
@@ -258,13 +241,13 @@ console.log(loading)
               </div>
             </section>
           </section>
-          <section className='territory' ref={territoryRef.ref} style={{backgroundImage:`url(${territoryImg})`}}>
+          <section className='territory' id="ter" ref={territoryRef.ref} style={{backgroundImage:`url(${territoryImg})`}}>
             <div className='tt-header'>
               <h1>Our Territory </h1>
               <p>9 Holes, 35 par =  {territoryRef.inView ? <CountUp end={2833} duration={5} /> : 0} meters of Pure Fun</p>
             </div>
           </section>
-          <section className='contact'>
+          <section className='contact'  id='cont'>
             <div className='contact-text'>
               <div>
                 <h1> <span className='italic'>Fancy A Game</span> ?</h1>
@@ -428,7 +411,7 @@ console.log(loading)
           </footer>
         </section> 
       </>
-    )
+
   );
   
 }
