@@ -142,19 +142,19 @@ function App() {
       </div>
     
       </div>:<p></p>}
-            <div className="video-container" dangerouslySetInnerHTML={{
-              __html: 
-              `<video id="video" muted playsinline>
-              ${ window.innerWidth > 768 ? 
-                `<source src="/g.mp4" type="video/mp4" />
+            <div className="video-container">
+               <video id="video" muted playsinline>
+              { window.innerWidth > 768 ? (
+                <>
+                <source src="/g.mp4" type="video/mp4" />
                 <source src="/g4.webm" type="video/webm" />
                 <source src="/fallback.mp4" type="video/mp4" />
-                Your browser does not support the video tag.` : 
-                `<source src="/g4.webm" type="video/webm" />
+                Your browser does not support the video tag.</>) :(<>
+                <source src="/g4.webm" type="video/webm" />
                 <source src="/fallback.mp4" type="video/mp4" />
-                Your browser does not support the video tag.`}
-              </video>`
-            }}>
+                Your browser does not support the video tag.</>) }
+              </video>
+            
             </div>
             <div className='hero-text-container' id='pg'>
               <header id='header'>
@@ -201,8 +201,8 @@ function App() {
               The club is situated on the N2 in the south-east corner of <span className='italic'>Mpumalanga</span>, about 30km north of KwaZulu-Natal and 30km west of Swaziland.
             </p>
           </section>
-          <section className='activities'>
-            <section className='activities-cnt' ref={activitiesRef.ref}>
+          <section className='activities' ref={activitiesRef.ref}>
+            <section className='activities-cnt' >
               <div className='activity-cnt'>
                 <div className="act-img-cnt">
                   <img src={swimImg} alt="" />

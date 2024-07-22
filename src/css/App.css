@@ -16,6 +16,7 @@
   height: 100svh;
   display: flex;
   justify-content: center;
+  font-family: 'Cabinet Grotesk';
 }
 
 .loading-screen img{
@@ -121,6 +122,8 @@ nav {
     
   }
 }
+
+
 
 .italic {
   font-style: italic;
