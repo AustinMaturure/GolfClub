@@ -213,6 +213,7 @@ align-items: flex-start;
   justify-content: space-between;
   font-family: 'Cabinet Grotesk';
   font-weight: 700;
+  font-size: 1.25rem;
 }
 
 .act-img-cnt{
@@ -462,6 +463,12 @@ border-bottom: 1px solid #4c7766;
 .footer-cnt li{
   color: #ffffffcb;
  
+}
+
+.pricing{
+  opacity: 0;
+  animation: text-up 3s ease-out forwards;
+  animation-play-state: paused;
 }
 .pricing h1{
   font-family: 'Cabinet Grotesk';

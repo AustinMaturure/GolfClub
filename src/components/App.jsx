@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useElementInView from '../utils/ElementInView'
 import CountUp from 'react-countup';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Lenis from 'lenis'
 import golfBall from '../assets/golf-ball.svg'
 
 import '../css/App.css';
@@ -20,11 +21,24 @@ import fbImg from '../assets/fb.svg'
 
 
 function App() {
+  const lenis = new Lenis()
+
+lenis.on('scroll', (e) => {
+  console.log(e)
+})
+
+function raf(time) {
+  lenis.raf(time)
+  requestAnimationFrame(raf)
+}
+
+requestAnimationFrame(raf)
   const [menuOpen, setMenuOpen] = useState(false);
   const about = useElementInView('.about-text');
   const activitiesRef = useElementInView('.activities-cnt');
   const territoryRef = useElementInView('.territory');
   const questionRef = useElementInView('.Faq-question');
+  const pricingRef = useElementInView('.pricing');
 
   const [activeIndexes, setActiveIndexes] = useState({});
 
@@ -141,9 +155,9 @@ function App() {
     <p>Loading...</p>
       </div>
     
-      </div>:<p></p>}
+      </div>:<></>}
             <div className="video-container">
-               <video id="video" autoPlay={false} muted playsinline>
+               <video id="video" muted playsinline>
               { window.innerWidth > 768 ? (
                 <>
                 <source src="/g.mp4" type="video/mp4" />
@@ -302,7 +316,7 @@ function App() {
               ))}
             </div>
           </section></HelmetProvider>
-          <section className='pricing'>
+          <section className='pricing' ref={pricingRef.ref}>
             <div className="plans">
               <div className='prices-cnt'>
                 <h1><span className='italic'>Premium</span></h1>
