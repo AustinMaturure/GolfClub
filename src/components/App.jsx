@@ -358,7 +358,7 @@ requestAnimationFrame(raf)
                 <h2>Upcoming Event:</h2>
               </div>
               <div className='event-date'>
-                <h2>2 April 2024</h2>
+                <h2>28 July 2024</h2>
               </div>
               <div className='event-price'>
                 <h2>ZAR 200 PP</h2>
