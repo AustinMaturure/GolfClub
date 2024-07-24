@@ -102,11 +102,6 @@ requestAnimationFrame(raf)
             scaleValue = 0.5;
             text.style.color = 'white';
             text.style.top = 'unset';
-            video.pause();
-            header.style.animationPlayState = 'paused';
-            golf.style.animationPlayState = 'paused';
-            golfh1.style.animationPlayState = 'paused';
-            subline.style.animationPlayState = 'paused';
           }
   
           video.style.transform = `scale(${scaleValue})`;
