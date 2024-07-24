@@ -80,6 +80,7 @@ video {
 }
 
 header {
+  margin-top: 2rem;
   display: flex;
   width: 100%;
   justify-content: space-between;
@@ -93,6 +94,7 @@ header {
   border-bottom: 1px solid #4c7766;
   align-items: center;
   z-index: 1000;
+
 }
 
 header ul {
@@ -255,10 +257,9 @@ align-items: flex-start;
   .contact-img-cnt img{
     max-width: 100%;
   }
-
-  .Faq-header h1{
-    font-size: unset;
-  } 
+  .tt-header, .Faq-header h1{
+    font-size: 2.5rem;
+  }
 
   .about{
     padding: 2rem !important;
@@ -384,7 +385,7 @@ nav {
   background-attachment: fixed;
   transform: scale(0.9);
   animation: scale 1s ease-in-out forwards;
-  animation-play-state: paused;
+  animation-play-state: paused; 
 }
 .territory::after{
   content: '';
