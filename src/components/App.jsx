@@ -136,7 +136,7 @@ function App() {
             <></>
           )}
           <div className="video-container">
-            <video id="video" muted playsinline>
+            <video id="video" muted playsinline autoPlay>
               {window.innerWidth > 768 ? (
                 <>
                   <source src="/g.mp4" type="video/mp4" />

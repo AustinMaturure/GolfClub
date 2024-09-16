@@ -305,7 +305,6 @@ video::before {
   font-size: 6rem;
 }
 
-/* Responsive Navigation */
 nav {
   display: flex;
   align-items: center;
