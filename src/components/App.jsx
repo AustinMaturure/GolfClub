@@ -87,7 +87,6 @@ function App() {
     const subline = document.getElementById("subline");
 
     if (video) {
-      video.autoPlay = false;
       video.preload = "auto";
       video.loop = false;
       video.muted = true;
@@ -97,7 +96,6 @@ function App() {
         video.style.display = "block";
         video.style.animationPlayState = "running";
 
-        // Trigger your animation when the video is loaded
         text.style.color = "black";
         text.style.top = "0";
         if (video.readyState >= 3 && video.paused) video.play();
@@ -136,7 +134,13 @@ function App() {
             <></>
           )}
           <div className="video-container">
-            <video id="video" muted playsinline controls={false}>
+            <video
+              id="video"
+              muted
+              playsinline
+              controls={false}
+              autoPlay={true}
+            >
               {window.innerWidth > 768 ? (
                 <>
                   <source src="/g.mp4" type="video/mp4" />
