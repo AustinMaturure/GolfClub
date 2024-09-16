@@ -90,6 +90,7 @@ function App() {
       video.preload = "auto";
       video.loop = false;
       video.muted = true;
+      video.autoPlay = true;
 
       video.addEventListener("canplaythrough", () => {
         setLoading(false);
@@ -134,13 +135,7 @@ function App() {
             <></>
           )}
           <div className="video-container">
-            <video
-              id="video"
-              muted
-              playsinline
-              controls={false}
-              autoPlay={true}
-            >
+            <video id="video" muted playsinline>
               {window.innerWidth > 768 ? (
                 <>
                   <source src="/g.mp4" type="video/mp4" />
